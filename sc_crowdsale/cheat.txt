@@ -1,0 +1,7 @@
+web3.eth.getAccounts( (err,res) => {first=res[0]; web3.eth.personal.unlockAccount(first, "123456", 0)})
+
+DSToken.deployed().then(i=>{dai=i})
+CreateCrowdsale.deployed().then(i=>{cc=i})
+RewardTokenFactory.deployed().then(i=>{rtf=i})
+cc.createCrowdsale( web3.utils.toWei('1000'), web3.utils.toWei('500'), web3.utils.toWei('1.1'), 10, rtf.address, 'NAME','SYMBOL', dai.address )
+
